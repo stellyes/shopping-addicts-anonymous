@@ -1,19 +1,21 @@
 import React from 'react';
-import Header from './components/Header';
+import { Container, Image } from 'react-bootstrap';
+import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import img from './assets/shopanon.png';
 import ImageCarousel from './components/ImageCarousel';
 
 const App = () => {
-  const images = [
-    './assets/busycity.jpeg',
-    './assets/citypark.jpeg',
-    './assets/houseparty.jpg'
-  ];
-
   return (
-    <div>
-        <Header />
-        <ImageCarousel images={images} />
-    </div>
+    <Container>
+        <Container fluid className="d-flex">
+            <FaUserAlt className="login justify-content-start align-self-center" fill="#FFF"/>
+            <Image src={img} alt="logo" className='logo mx-auto justify-content-center' fluid />
+            <FaShoppingCart className="cart justify-content-end align-self-center" fill="#FFF"/>
+        </Container>
+        <ImageCarousel />
+        <Container fluid className="d-flex">
+        </Container>
+    </Container>
   );
 };
 
