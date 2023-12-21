@@ -1,0 +1,29 @@
+body {
+    background: #000;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.carousel {
+    min-width: 100%;
+    height: auto;
+}
+
+.dashboard {
+  background: #000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.logo {
+    max-height: 100px;
+    width: auto;
+}
+
+.cart {
+    min-height: 20px;
+    min-width: 20px;
+    margin-right: 3%;
+    margin-left: -3%;
+}

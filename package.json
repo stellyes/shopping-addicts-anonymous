@@ -1,0 +1,39 @@
+{
+  "name": "s.a.a.",
+  "version": "1.0.0",
+  "description": "A shopping experience like you've never seen.",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stellyes/shopping-addicts-anonymous.git"
+  },
+  "keywords": [
+    "e-commerce"
+  ],
+  "author": "Ryan England",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stellyes/shopping-addicts-anonymous/issues"
+  },
+  "homepage": "https://github.com/stellyes/shopping-addicts-anonymous#readme",
+  "dependencies": {
+    "flickity": "^3.0.0",
+    "happy-dom": "^9.20.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.9.1",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "vite": "^4.2.0"
+  }
+}
