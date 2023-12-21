@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Image } from 'react-bootstrap';
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
+import { IoMdHelp } from "react-icons/io";
 import img from './assets/shopanon.png';
 import ImageCarousel from './components/ImageCarousel';
 
@@ -13,7 +14,8 @@ const App = () => {
             <FaShoppingCart className="cart justify-content-end align-self-center" fill="#FFF"/>
         </Container>
         <ImageCarousel />
-        <Container fluid className="d-flex">
+        <Container fluid className="footer d-flex">
+            <IoMdHelp className='help mx-auto my-4 justify-content-center' fill="#FFF"/>
         </Container>
     </Container>
   );
