@@ -21,19 +21,27 @@ body {
 
 }
 
+.image-forward,
+.image-backward,
 .help {
     height: 30px;
     width: 30px;
 }
 
+.image-backward {
+    rotate: 180deg;
+}
+
+.image-forward:hover,
+.image-backward:hover,
+.help:hover,
 .login:hover,
 .cart:hover {
     cursor: pointer;
 }
 
 .carousel img {
-    width: 75em;
-    height: 40em;
+    aspect-ratio: 15/8;
     object-fit: cover;
 }
 
