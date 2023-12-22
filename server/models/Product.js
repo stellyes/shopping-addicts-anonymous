@@ -20,9 +20,12 @@ const product = new Schema({
     min: 0.99
   },
   quantity: {
-    type: Number,
-    min: 0,
-    default: 0
+    type: Array,
+    default: [0]
+  },
+  sizes: {
+    type: Array,
+    default: ["One Size"]
   }
 });
 
