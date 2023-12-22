@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/stellyes/shopping-addicts-anonymous/issues"
   },
-  "homepage": "https://github.com/stellyes/shopping-addicts-anonymous#readme",
+  "homepage": "https://shopping-addicts-anonymous.onrender.com/",
   "dependencies": {
     "flickity": "^3.0.0",
     "happy-dom": "^9.20.3",
