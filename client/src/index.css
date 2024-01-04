@@ -21,22 +21,41 @@ body {
 
 }
 
+.image-forward,
+.image-backward,
 .help {
     height: 30px;
     width: 30px;
 }
 
+.image-backward {
+    rotate: 180deg;
+}
+
+.image-forward:hover,
+.image-backward:hover,
+.help:hover,
 .login:hover,
 .cart:hover {
     cursor: pointer;
 }
 
+.carousel {
+    aspect-ratio: 15/8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
 .carousel img {
-    width: 75em;
-    height: 40em;
-    object-fit: cover;
+    height: auto;
+    width: 100%;
+    scale: 7.5;
 }
 
 .footer {
     min-height: 50px;
 }
+
+
