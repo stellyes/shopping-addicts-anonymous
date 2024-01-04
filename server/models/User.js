@@ -5,12 +5,7 @@ const bcrypt = require('bcrypt');
 const Order = require('./Order');
 
 const user = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  lastName: {
+  username: {
     type: String,
     required: true,
     trim: true
@@ -31,7 +26,7 @@ const user = new Schema({
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
-    const saltRounds = 17;
+    const saltRounds = 69;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
 
