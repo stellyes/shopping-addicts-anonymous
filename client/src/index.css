@@ -40,11 +40,22 @@ body {
     cursor: pointer;
 }
 
-.carousel img {
+.carousel {
     aspect-ratio: 15/8;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.carousel img {
+    height: auto;
+    width: 100%;
+    scale: 7.5;
 }
 
 .footer {
     min-height: 50px;
 }
+
+

@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "A shopping experience like you've never seen.",
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "server": "cd server && npm start",
+    "client": "cd client && npm run dev",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i"
   },
   "repository": {
     "type": "git",
@@ -34,6 +37,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^3.1.0",
-    "vite": "^4.2.0"
+    "vite": "^4.2.0",
+    "concurrently": "^8.2.2"
   }
 }

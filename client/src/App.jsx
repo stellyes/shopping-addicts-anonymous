@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Image } from 'react-bootstrap';
+
 import { FaShoppingCart, FaUserAlt } from "react-icons/fa";
 import { IoMdHelp } from "react-icons/io";
 import { MdPlayArrow } from "react-icons/md";
 
 import img from './assets/shopanon.png';
-import busycity from './assets/busycity.jpeg';
-import citypark from './assets/citypark.jpeg';
-import houseparty from './assets/houseparty.jpg';
+import mpc from './assets/megapanocollage.jpg';
 
 import ImageCarousel from './components/ImageCarousel';
 
 const App = () => {
-    const images = [busycity, citypark, houseparty];
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [imagePosition, setImagePosition] = useState(50);
+  
+    const handleImageForward = () => {
+        setImagePosition((prevPosition) => (prevPosition - 10));
+    };
 
-  const handleImageForward = (e) => {
-    e.stopPropagation();
-    // Increment the current image index
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+    const handleImageBackward = () => {
+        setImagePosition((prevPosition) => (prevPosition + 10));
+    };
 
-  const handleImageBackward = () => {
-    // Decrement the current image index
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+    useEffect(() => {
+      function handleKeyDown(e) {
+        console.log(e.keyCode);
+        if (e.keyCode === 37) {
+          handleImageBackward();
+        } else if (e.keyCode === 39) {
+          handleImageForward();
+        }
+      }
+
+      document.addEventListener('keydown', handleKeyDown);
+
+      // Don't forget to clean up
+      return function cleanup() {
+        document.removeEventListener('keydown', handleKeyDown);
+      }
+    }, []);
 
   return (
     <Container>
@@ -35,9 +46,9 @@ const App = () => {
             <Image src={img} alt="logo" className='logo mx-auto justify-content-center' fluid />
             <FaShoppingCart className="cart justify-content-end align-self-center" fill="#FFF"/>
         </Container>
-        <ImageCarousel {...{ images, currentImageIndex }}/>
-        <Container fluid className="footer d-flex justify-content-center align-items-center" onClick={handleImageBackward}>
-            <MdPlayArrow className="image-backward mx-4" fill="#FFF" />
+        <ImageCarousel image={mpc} position={imagePosition} />
+        <Container fluid className="footer d-flex justify-content-center align-items-center" >
+            <MdPlayArrow className="image-backward mx-4" fill="#FFF" onClick={handleImageBackward} />
             <IoMdHelp className='help mx-3 my-4' fill="#FFF" />
             <MdPlayArrow className="image-forward mx-4" fill="#FFF" onClick={handleImageForward} />
         </Container>
