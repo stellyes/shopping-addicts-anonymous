@@ -64,7 +64,12 @@ body {
     height: 35%;
     z-index: 1;
     left: 27%;
+    opacity: 0; 
     transition: opacity 0.5s ease;
+}
+
+.help-info.show {
+    opacity: 1;
 }
 
 .close-help {

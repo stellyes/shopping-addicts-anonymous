@@ -9,7 +9,7 @@ import mpc from '../assets/megapanocollage.jpg';
 
 const ImageCarousel = () => {
 
-    const [showHelp, setShowHelp] = useState(0); // [state, setState
+    const [showHelp, setShowHelp] = useState(0); 
     const [imagePosition, setImagePosition] = useState(50); // 50% is centered
     const [width, setWidth] = useState(window.innerWidth);
 
@@ -24,11 +24,7 @@ const ImageCarousel = () => {
     };
 
     const handleShowHelp = () => {
-        if (showHelp === 0) {
-            setShowHelp(1);
-        } else {
-            setShowHelp(0);
-        }
+        setShowHelp((prevShowHelp) => (prevShowHelp === 0 ? 1 : 0));
     };
   
     // Moves image to left, displaying more of what was on the right
@@ -82,7 +78,7 @@ const ImageCarousel = () => {
 
     return (
         <Container className='home'>
-            <Container className='help-info' style={{ filter: `opacity${showHelp}`}}>
+            <Container className={`help-info ${showHelp === 1 ? 'show' : ''}`}>
                 <Container className='help-info-content d-flex justify-content-center align-items-center'>
                 <TfiClose className='close-help' onClick={handleShowHelp}/>
                 <IoMdHelp className='mx-3 my-5' style={{scale: "4"}}/>
