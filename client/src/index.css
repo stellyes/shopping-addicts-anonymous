@@ -5,27 +5,27 @@ body {
 
 .logo {
     max-height: 120px;
-    width: auto;
+    max-width: 50%;
 }
 
 .login {
-    height: 18px;
-    width: 18px;
-    margin-left: 5%;
+    min-height: 18px;
+    min-width: 18px;
+    margin-left: 5em;
 }
 
 .cart {
-    height: 20px;
-    width: 20px;
-    margin-right: 5%;
+    min-height: 20px;
+    min-width: 20px;
+    margin-right: 5em;
 
 }
 
 .image-forward,
 .image-backward,
 .help {
-    height: 30px;
-    width: 30px;
+    min-height: 30px;
+    min-width: 30px;
 }
 
 .image-backward {
@@ -58,4 +58,56 @@ body {
     min-height: 50px;
 }
 
+@media screen and (max-width: 991px) {
 
+    .login {
+        margin-left: 6em;
+    }
+
+    .cart {
+        margin-right: 6em;
+    }
+
+    .logo {
+        scale: 1.3;
+    }
+
+    .image-forward,
+    .image-backward,
+    .help {
+        min-height: 50px;
+        min-width: 50px;
+        margin: 1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .login {
+        margin-left: 1em;
+    }
+
+    .cart {
+        margin-right: 1em;
+    }
+
+    .logo {
+        scale: 1.5;
+    }
+
+    .header {
+        margin: 1svh 0;
+    }
+
+    .carousel {
+        height: 80svh;
+    }
+
+    .carousel img {
+        scale: 23;
+    }
+
+    .carousel-footer {
+        height: 10svh;
+    }
+}
