@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Form, Button, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
 
 const Register = () => {
     const [showError, setShowError] = useState(false); // For login error handling
@@ -9,16 +12,35 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const handleRegister = (e) => {
+    const [addUser, { error, data }] = useMutation(ADD_USER);
+
+    useEffect(() => {
+        console.log(error);
+    }, [error]);
+
+    const handleRegister = async (e) => {
         e.preventDefault();
-        // Add your register logic here
+        
+        if (password !== confirmPassword) {
+            console.error("Passwords do not match")
+        }
+
+        try {
+            const { data } = await addUser({ 
+                variables: { email, username, password } 
+            });
+
+            Auth.login(data.addUser.token);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     return (
         <Container className="justify-content-center align-items-center">
             <Row className='justify-content-center align-items-center'>
                 <Col className='text-center'>
-                    <Form className="register-container my-5 mx-auto" onSubmit={handleRegister}>
+                    <Form className="register-container my-5 mx-auto">
                         <Form.Group className="my-3 email-field" controlId="formEmail">
                             <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </Form.Group>
@@ -32,10 +54,10 @@ const Register = () => {
                         </Form.Group>
 
                         <Form.Group className="my-3 password-field" controlId="formConfirmPassword">
-                            <Form.Control type="password" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setPassword(e.target.value)} />
+                            <Form.Control type="password" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                         </Form.Group>
 
-                        <Button className="my-3 login-button" type="submit">
+                        <Button className="my-3 login-button" onClick={handleRegister}>
                             Register
                         </Button>
                     </Form>

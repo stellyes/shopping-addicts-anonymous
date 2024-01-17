@@ -6,6 +6,8 @@ const path = require('path');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+const { verifyToken } = require('./utils/auth.js');
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
@@ -23,7 +25,7 @@ const startApolloServer = async () => {
   app.use('/images', express.static(path.join(__dirname, '../client/images')));
 
   app.use('/graphql', expressMiddleware(server, {
-    context: authMiddleware
+    context: verifyToken
   }));
 
   if (process.env.NODE_ENV === 'production') {

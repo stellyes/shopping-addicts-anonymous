@@ -8,7 +8,6 @@ module.exports = {
     },
   }),
   verifyToken: function ({ req }) {
-    // allows token to be sent via req.body, req.query, or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 
     // If token is sent via HTTP headers, remove the "Bearer" prefix
