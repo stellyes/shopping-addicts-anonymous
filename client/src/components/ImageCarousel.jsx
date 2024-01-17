@@ -47,7 +47,6 @@ const ImageCarousel = () => {
     // Enables left and right arrows to be used to navigate carousel
     useEffect(() => {
       function handleKeyDown(e) {
-        console.log(e.keyCode);
         if (e.keyCode === 37) { // left arrow
           handleImageBackward();
         } else if (e.keyCode === 39) { // right arrow
@@ -84,7 +83,7 @@ const ImageCarousel = () => {
                 <IoMdHelp className='mx-3 my-5' style={{scale: "4"}}/>
                     <p>
                         Shopping Addicts Anonymous is a support group for those who have an online shopping addiction. 
-                        We are here to help enable your addiction and help you become a better version of yourself.
+                        We are here to help you become a better version of yourself.
                     </p>
                     <p>
                         To browse our products, click the arrows on the bottom of the page to navigate through 

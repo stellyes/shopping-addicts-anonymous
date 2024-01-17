@@ -4,8 +4,8 @@ body {
 }
 
 .logo {
-    max-height: 120px;
-    max-width: 50%;
+    max-width: 40%;
+    scale: 0.8;
 }
 
 .login {
@@ -58,6 +58,7 @@ body {
     min-height: 50px;
 }
 
+
 .help-info {
     position: fixed;
     width: 45%;
@@ -91,6 +92,52 @@ body {
     height: auto;
     font-size: large;
     text-align: center;
+}
+
+.register-container,
+.login-container {
+    width: 70%;
+    max-width: 500px;
+}
+
+.email-field,
+.password-field, 
+.username-field {
+    border-radius: 0;
+    background-color: #FFF;
+    color: #000;
+}
+
+.login-button {
+    width: 70%;
+    background-color: #FFF;
+    border-radius: 0;
+    color: #000;
+    border: 2px solid #000;
+    transition: color 0.2s ease, 
+                background-color 0.2s ease,
+                border 0.2s ease;
+}
+
+.login-button:hover {
+    background-color: #222;
+    color: #DDD;
+    border: 2px solid #222;
+}
+
+.switch-login-function {
+    background: radial-gradient(#666, 20%, #00000000, 60%, #00000000);
+}
+
+.shiny-link {
+    color: #FFF;
+    text-shadow: 0px 0px 15px #000;
+    transition: text-shadow 0.2s ease;
+}
+
+.shiny-link:hover {
+    color: #FFF;
+    text-shadow: 0px 0px 15px #FFF;
 }
 
 @media screen and (max-width: 991px) {

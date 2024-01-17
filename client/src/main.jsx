@@ -4,6 +4,8 @@ import App from './App.jsx';
 import './index.css';
 
 import ImageCarousel from './components/ImageCarousel.jsx';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <ImageCarousel/>
+      },
+      {
+        path: "/login",
+        element: <Login />
+      },
+      {
+        path: "/register",
+        element: <Register />
       },
     ]
   }
